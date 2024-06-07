@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="paletteCSS.css" />
+    <title>Color Palette Generator</title>
+</head>
+<body>
+
+    <h1>Color Palette Generator</h1>
+
+    <div class="box" style="display: flex; flex-direction: column; justify-content:space-between;">
+        <div class="sliderContainer">
+            <!--Hue Slider-->
+            <div class="sliderSection" id="hue">
+                <p class="sliderLabel">Hue: <span class="amount" id="hueAmount">50°</span></p>
+                <div class="dualSlider" id="dualHue">
+                    <div class="sliderTrack" id="hueTrack"></div>
+                    <input type="range" min="0" max="360" value="0" class="slider" id="hueRange" oninput="hueSlider()">
+                </div>
+            </div>
+            <!--Saturation Slider-->
+            <div class="sliderSection" id="saturation">
+                <p class="sliderLabel">Saturation: <span class="amount" id="satAmount">0% - 100%</span></p>
+                <div class="dualSlider" id="dualSat">
+                    <div class="sliderTrack" id="bgTrack1"></div>
+                    <div class="sliderTrack" id="satTrack"></div>
+                    <input type="range" class="dual" min="0" max="100" value="0" id="satMin" oninput="satSlideMin()">
+                    <input type="range" class="dual" min="0" max="100" value="100" id="satMax" oninput="satSlideMax()">
+                </div>
+            </div>
+            <!--Lightness Slider-->
+            <div class="sliderSection" id="lightness">
+                <p class="sliderLabel">Lightness: <span class="amount" id="lightAmount">0% - 100%</span></p>
+                <div class="dualSlider" id="dualLight">
+                    <div class="sliderTrack" id="bgTrack2"></div>
+                    <div class="sliderTrack" id="lightTrack"></div>
+                    <input type="range" class="dual" min="0" max="100" value="0" id="lightMin" oninput="lightSlideMin()">
+                    <input type="range" class="dual" min="0" max="100" value="100" id="lightMax" oninput="lightSlideMax()">
+
+                </div>
+            </div>
+
+        </div>
+
+        <!--Color palette-->
+        <div class="palette" style="display:flex; flex-direction: row;">
+            <div id="color1" class="paletteColor">
+                <h3 id="color1Text">c1</h3>
+            </div>
+            <div id="color2" class="paletteColor">
+                <h3 id="color2Text">c2</h3>
+            </div>
+            <div id="color3" class="paletteColor">
+                <h3 id="color3Text">c3</h3>
+            </div>
+            <div id="color4" class="paletteColor">
+                <h3 id="color4Text">c4</h3>
+            </div>
+            <div id="color5" class="paletteColor">
+                <h3 id="color5Text">c5</h3>
+            </div>
+        </div>
+        <!--Buttons below the color palette to decide the color palette type-->
+        <!--By default it is monochromatic-->
+        <div class="paletteTypes" style="display:flex; flex-direction: row;">
+
+            <button class="types mono" onclick="genMono()">
+                <img src="1_Monochromatic.png" />
+                <h4>Monochromatic</h4>
+            </button>
+            <button class="types analog" onclick="genAnalog()">
+                <img src="2_Analogous.png" />
+                <h4>Analogous</h4>
+            </button>
+            <button class="types complement" onclick="genComp()">
+                <img src="3_Complementary.png" />
+                <h4>Complementary</h4>
+            </button>
+            <button class="types split" onclick="genSplit()">
+                <img src="4_SplitCompletentary.png" />
+                <h4>Split Complementary</h4>
+            </button>
+            <button class="types triad" onclick="genTriad()">
+                <img src="5_Triadic.png" />
+                <h4>Triadic</h4>
+            </button>
+            <button class="types rand" onclick="genRand()">
+                <img src="6_Random.png" />
+                <h4>Random</h4>
+            </button>
+
+        </div>
+    </div>
+
+
+    <script src="paletteJS.js"></script>
+
+</body>
+</html>
